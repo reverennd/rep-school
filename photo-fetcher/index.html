@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Fetcher</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Photo Fetcher</h2>
+
+        <div class="features">
+            <div class="grayscale">
+                <form action="/gray">
+                    <label class="switch">
+                        <input type="submit">
+                        <span class="slider round"></span>
+                    </label>
+                </form>
+                <span class="grayscale_text">Make photos grayscale</span>
+            </div>
+
+            <form action="/new">
+                <button class="fetch" type="submit">Fetch New Photos</button>
+            </form>
+
+        </div>
+
+        <div class="pictures">
+            <img src="https://picsum.photos/500/300" alt="pcisum">
+            <img src="https://picsum.photos/500/300" alt="pcisum">
+            <img src="https://picsum.photos/500/300" alt="pcisum">
+            <img src="https://picsum.photos/500/300" alt="pcisum">
+        </div>
+
+
+
+    </div>
+</body>
+</html>
