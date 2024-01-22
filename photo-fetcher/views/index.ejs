@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Fetcher</title>
+    <link rel="stylesheet" href="/styles/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Photo Fetcher</h2>
+
+        <div class="features">
+            <div class="grayscale">
+                <form action="/gray">
+                    <label class="switch">
+                        <input onclick="" class="toggle" type="submit">
+                        <span class="slider round"></span>
+                    </label>
+                </form>
+                <span class="grayscale_text">Make photos grayscale</span>
+            </div>
+
+            <form action="/new">
+                <button class="fetch" type="submit">Fetch New Photos</button>
+            </form>
+
+        </div>
+
+        <div class="pictures">
+            <% for (let i = 0; i < numberImages; i++) { %>
+                <% var random = Math.floor(Math.random() * 200) %>
+                <% if (grayScale) { %>
+                <img onclick="grayScale()" class="image gray" src="https://picsum.photos/id/<%= random %>/500/300" alt="pcisum">
+                <% } else { %>
+                    <img onclick="grayScale()" class="image" src="https://picsum.photos/id/<%= random %>/500/300" alt="pcisum">
+                <% } %>
+            <% } %>
+            
+        </div>
+
+
+
+    </div>
+    <script>
+        const toggle = document.querySelector('.toggle');
+    
+        toggle.addEventListener('change', () => {
+            document.querySelectorAll(".image").forEach((image) => {
+                if (toggle.checked) {
+                    image.classList.add('gray');
+                } else {
+                    image.classList.remove('gray');
+                }
+            });
+        });
+    </script>
+    
+    
+</body>
+</html>
