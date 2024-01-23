@@ -56,11 +56,15 @@ span {
 }
 
 h2 {
-    font-family: system-ui;
-    font-weight: 100;
-    font-size: 2em;
+  font-family: system-ui;
+  font-weight: 100;
+  font-size: 2em;
 }
 
+.grayscale_text {
+  font-family: system-ui;
+  font-size: 0.8em;
+}
 
 .switch {
     position: relative;
