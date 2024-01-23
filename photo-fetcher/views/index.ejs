@@ -22,8 +22,8 @@
             </div>
 
 
-            <form action="/" method="get">
-                <button class="fetch2" type="submit" onclick="fetchNewPhotos()">Fetch New Photos</button>
+            <form action="/">
+                <button class="fetch2" type="submit">Fetch New Photos</button>
             </form>
             
 
@@ -41,8 +41,8 @@
             
         </div>
 
-        <form id="morePhotosForm" action="/new">
-            <button class="fetch" onclick="fetchMorePhotos()" method="get" type="button">More Photos</button>
+        <form action="/new">
+            <button class="fetch" type="submit">More Photos</button>
         </form>
 
     </div>
@@ -58,42 +58,6 @@
                 }
             });
         });
-
-        function fetchMorePhotos() {
-        var xhr = new XMLHttpRequest();
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState === 4 && xhr.status === 200) {
-                var data = JSON.parse(xhr.responseText);
-                var newRandomNumbers = data.newRandomNumbers;
-
-                var picturesContainer = document.querySelector('.pictures');
-
-                // Retrieve the current number of images
-                var currentImageCount = picturesContainer.querySelectorAll('.image').length;
-
-                // Append new images to the existing ones
-                for (var i = 0; i < newRandomNumbers.length; i++) {
-                    var random = newRandomNumbers[i];
-                    var imageElement = document.createElement('img');
-                    imageElement.src = 'https://picsum.photos/id/' + random + '/500/300';
-                    imageElement.alt = 'picsum';
-                    picturesContainer.appendChild(imageElement);
-                }
-            }
-        };
-
-        xhr.open('GET', '/new', true);
-        xhr.send();
-
-        // Prevent the default form submission
-        return false;
-    }
-
-    // Attach the form submission to the button click
-    document.getElementById('morePhotosForm').addEventListener('submit', function (event) {
-        event.preventDefault();
-        fetchMorePhotos();
-    });
     </script>
     
     
