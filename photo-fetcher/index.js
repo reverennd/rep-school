@@ -26,8 +26,13 @@ app.get("/", (req, res) => {
 })
 
 app.get("/new", (req, res) => {
-    numberImages += 4
-    res.redirect("/")
+    const newRandomNumbers = [];
+    for (let i = 0; i < 4; i++) {
+        const randomNumber = Math.floor(Math.random() * 200);
+        newRandomNumbers.push(randomNumber);
+    }
+
+    res.json({ newRandomNumbers });
 })
 
 app.get("/gray", (req, res) => {
