@@ -18,34 +18,38 @@
                         <span class="slider round"></span>
                     </label>
                 </form>
-                <span class="grayscale_text">Make photos grayscale</span>
+                <span class="grayscale_text"><p class="grayscale-button">Make photos grayscale</p></span>
             </div>
-
 
             <form action="/">
                 <button class="fetch2" type="submit">Fetch New Photos</button>
             </form>
-            
-
         </div>
 
         <div class="pictures">
             <% for (let i = 0; i < numberImages; i++) { %>
-                <% var random = Math.floor(Math.random() * 200) %>
-                <% if (grayScale) { %>
-                <img class="image gray" src="https://picsum.photos/id/<%= random %>/500/300" alt="pcisum">
-                <% } else { %>
-                    <img  class="image" src="https://picsum.photos/id/<%= random %>/500/300" alt="pcisum">
-                <% } %>
+                <figure class="image-container">
+                    <% var random = Math.floor(Math.random() * 200) %>
+                    <% if (grayScale) { %>
+                        <img class="image gray" src="https://picsum.photos/id/<%= random %>/500/300" alt="pcisum">
+                    <% } else { %>
+                        <img class="image" src="https://picsum.photos/id/<%= random %>/500/300" alt="pcisum">
+                    <% } %>
+                    <figcaption class="overlay-text">
+                        <span>
+                        <h3>Luke Budimaier</h3>
+                        <p>https://picsum.photos/id/<%= random %>/500/300</p>
+                        </span>
+                    </figcaption>
+                </figure>
             <% } %>
-            
         </div>
 
         <form action="/new">
             <button class="fetch" type="submit">More Photos</button>
         </form>
-
     </div>
+
     <script>
         const toggle = document.querySelector('.toggle');
     
@@ -59,7 +63,5 @@
             });
         });
     </script>
-    
-    
 </body>
 </html>
